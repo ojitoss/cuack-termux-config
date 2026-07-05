@@ -6,6 +6,13 @@ set nowrap
 set mouse=a
 set sidescrolloff=8
 set sidescroll=2
+set number
+set cursorline
+set showmode
+set showcmd
+
+colorscheme desert
+
 
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#next(1) : "\<TAB>"
