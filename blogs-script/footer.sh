@@ -20,8 +20,6 @@ if [ $2 -ge $MAX ]; then
   NEXT="None"
 fi
 
-echo $CURRENT
-
-echo "| Prev | Index | Next |" 
+echo "| Prev | Table of contents | Next |" 
 echo "| :--  | :--   | :--  |"
-echo "| $PREV | [Index](./README.md) | $NEXT |"
+echo "| $PREV | [Here](./README.md#table-of-contents) | $NEXT |"
