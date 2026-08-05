@@ -3,16 +3,21 @@ ROOT=$HOME/.dotfiles/blogs-script/
 SOME=$($ROOT./getter.sh "$1")
 
 mapfile -t some <<< $SOME
-CURR_INDEX=$(($2 + 1))
+CURR_INDEX=$(($2 + 2))
 PREV_INDEX=$(($CURR_INDEX - 1))
 NEXT_INDEX=$(($CURR_INDEX + 1))
+MAX="${some[0]}"
 
 CURRENT="${some[$CURR_INDEX]}"
-PREV="[${some[$PREV_INDEX]}](./$PREV_INDEX.md)"
-NEXT="[${some[$NEXT_INDEX]}](./$NEXT_INDEX.md)"
+PREV="[${some[$PREV_INDEX]}](./$(($PREV_INDEX - 1)).md)"
+NEXT="[${some[$NEXT_INDEX]}](./$(($NEXT_INDEX - 1)).md)"
 
 if [ $2 -eq 0 ]; then
   PREV="None"
+fi
+
+if [ $2 -ge $MAX ]; then
+  NEXT="None"
 fi
 
 echo $CURRENT

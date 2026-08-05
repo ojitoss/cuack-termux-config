@@ -17,15 +17,19 @@ blogs_sections[0,8]="Obssesed for some reason"
 blogs_sections[0,9]="Logo"
 
 declare -a sorted_list
+declare -i max=-1
 
 for section in "${!blogs_sections[@]}"; do
-  IFS=","
+  IFS="," 
   read -r row col <<< $section
 
   if [ $row -eq $1 ]; then
     sorted_list[$col]="${blogs_sections[$section]}"
+    max+=1
   fi
 done
+
+echo $max
 
 echo "${blogs_names[$1]}"
 
